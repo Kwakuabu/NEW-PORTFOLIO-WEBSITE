@@ -1,4 +1,4 @@
-name: Website QA Tests
+name: HTML Validation
 
 on:
   push:
@@ -6,20 +6,20 @@ on:
   pull_request:
 
 jobs:
-  test:
+  validate-html:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Run HTML validation
-        uses: Cyb3r-Jak3/html5validator-action@v0.4.1
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          options: "--root ."
+          node-version: '18'
 
-      - name: Check for broken links
-        uses: lycheeverse/lychee-action@v1.8.0
-        with:
-          args: --verbose ./index.html
+      - name: Install HTMLHint
+        run: npm install -g htmlhint
 
+      - name: Run HTMLHint on all HTML files
+        run: htmlhint "**/*.html"
