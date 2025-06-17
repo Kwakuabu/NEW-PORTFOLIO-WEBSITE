@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+    <title> Portfolio_Website_Silas</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="./tailwind.config.js"></script>
+</head>
+<body class="overflow-x-hidden">
+
+    <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
+        <img src="Images/page-header-color-bgrnd.jpg" alt="" class="w-full">
+    </div>
+
+
+    <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+        <img src="Images/SilasLogo.png" alt="Logo"
+        class="w-28 cursor-pointer mr-14">
+        <ul class="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50">
+            <li><a href="#top">Home</a></li>
+            <li><a href="#about">About me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="flex items-center gap-4">
+        <button><img src="Images/moon.png" alt="" 
+        class="w-6"></button>
+
+        <a href="#contact"
+        class="hidden lg:flex items-center gap-3 px-10 py-2.0 border border-gray-500 rounded-full ml-4 ">
+        Contact <img src="Images/New Arrow.jpg" alt=""
+        class="w-8"></a>
+
+        <button class="block md:hidden ml-3" onclick="openMenu()">
+            <img src="Images/menu_icon.png" alt="" class="w-6">
+        </button>
+
+        </div>
+
+    
+
+        <ul id="sideMenu" class="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500">
+            
+            <div class="absolute right-6 top-6" onclick="closeMenu()" >
+                <img src="Images/close-back.webp" alt="" class="w-5 cursor-pointer">
+            </div>
+
+            <li><a href="#top" onclick="closeMenu()">Home</a></li>
+            <li><a href="#about" onclick="closeMenu()">About me</a></li>
+            <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+            <li><a href="#research" onclick="closeMenu()">Research</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+        </ul>
+
+        
+    </nav>
+
+<!------------Header--------->
+
+<div class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
+    <img src="./Images/profileimage.JPG" alt="" class="rounded-full w-32 mb-3">
+    <h3 class="flex items-center gap-2 text-xl md:text-2xl">Hi! This is Silas A. Abudu.<img src="Images/hand icon.svg" alt="" class="w-6"></h3>
+    <h1 class="text-3xl sm:text-6xl lg:text-[66px]">Cybersecurity and DevOps enthusiast based in Ghana.</h1>
+    <p class="max">I am a cybersecurity enthusiast with machine learning  and DevOps background.</p>
+    <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+        <a href="#contact" 
+        class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] 
+        text-white flex items-center gap-2">Contact me <img src="Images/right arrow white.png" alt="" class="w-4"></a>
+        <!--------download resume block----->
+        <a href="/Images/arrows.jpg" download
+        class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white ">My resume<img src="Images/download icon.png" alt="" class="w-4"></a>
+
+    </div>
+</div>
+
+<script src="./script.js"></script>    
+    
+</body>    
+</html>
