@@ -1,0 +1,25 @@
+name: Website QA Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run HTML validation
+        uses: Cyb3r-Jak3/html5validator-action@v0.4.1
+        with:
+          options: "--root ."
+
+      - name: Check for broken links
+        uses: lycheeverse/lychee-action@v1.8.0
+        with:
+          args: --verbose ./index.html
+
