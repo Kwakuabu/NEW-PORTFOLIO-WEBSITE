@@ -1,0 +1,11 @@
+{
+  "name": "new-website-project",
+  "version": "1.0.0",
+  "description": "Personal portfolio website built with HTML, Tailwind CSS, and custom scripts.",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.10"
+  }
+}
