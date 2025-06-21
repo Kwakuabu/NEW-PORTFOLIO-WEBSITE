@@ -212,19 +212,23 @@
     <h2 class="text-center text-5xl">Get in touch</h2>
     <p class="text-center max-w-2xl mx-auto mt-5 mb-12"> I'd love to hear from you! We can collaborate and do some small projects to build out competence!!</p>
 
-    <form action="" class="max-w-2xl mx-auto">
+    <form id="contactForm" action="https://formspree.io/f/mqabdjje" method="POST" class="max-w-2xl mx-auto">
         <div class="grid grid-cols-auto gap-6 mt-10 mb-8">
-            <input type="text" placeholder="Enter your name" class="flex-1 p-3 
+            <input type="text" name="name" placeholder="Enter your name" required class="flex-1 p-3 
             outline-none border-[0.5px] border-gray-400 rounded-md bg-white">
-
-            <input type="email" placeholder="Enter your email" class="flex-1 p-3 
+    
+            <input type="email" name="email" placeholder="Enter your email" required class="flex-1 p-3 
             outline-none border-[0.5px] border-gray-400 rounded-md bg-white">
         </div>
-        <textarea rows="6" placeholder="Enter your message" class="w-full p-4 outline-none border-[0.5px]
+    
+        <textarea name="message" rows="6" placeholder="Enter your message" required class="w-full p-4 outline-none border-[0.5px]
         border-gray-400 rounded-md bg-white mb-6"></textarea>
-        <img src="Images/submit.jpg" alt="" class="w-30 mx-auto transition-transform duration-500 ease-in-out hover:scale-105 hover:opacity-90 rounded-lg">
-       
+    
+        <button type="submit" class="block mx-auto">
+            <img src="Images/submit.jpg" alt="Submit" class="w-30 transition-transform duration-500 ease-in-out hover:scale-105 hover:opacity-90 rounded-lg">
+        </button>
     </form>
+    
 </div>
 
 
