@@ -1,0 +1,18 @@
+# Ignore system files
+.DS_Store
+
+# Ignore node dependencies
+node_modules/
+
+# Ignore build folders and tools
+dist/
+tailwindcss/
+
+# Ignore media and uncompressed assets
+Images/
+*.mp4
+*.psd
+*.zip
+
+# Ignore editor configs
+.vscode/
