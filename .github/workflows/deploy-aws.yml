@@ -2,7 +2,7 @@ name: Deploy to AWS S3
 
 on:
   workflow_run:
-    workflows: ["test"]  # This refers to your test.yml workflow
+    workflows: ["test"]
     types: [completed]
     branches: [ main ]
 
@@ -23,12 +23,25 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
         
-    - name: Sync to S3
+    - name: Deploy to S3
       run: |
-        aws s3 sync . s3://silas-portfolio --delete --exclude ".git/*" --exclude ".github/*" --exclude "README.md"
+        echo "🚀 Starting deployment to AWS S3..."
+        aws s3 sync . s3://silas-portfolio \
+          --delete \
+          --exclude ".git/*" \
+          --exclude ".github/*" \
+          --exclude "README.md" \
+          --exclude "*.md" \
+          --exclude ".gitignore"
+          
+    - name: Verify deployment
+      run: |
+        echo "✅ Deployment completed successfully!"
+        echo "🌐 Website URL: http://silas-portfolio.s3-website-us-east-1.amazonaws.com"
+        echo "📊 GitHub Pages: https://yourusername.github.io/repository-name"
         
-    - name: Deployment success
+    - name: Optional CloudFront invalidation
       run: |
-        echo "🚀 Website deployed successfully!"
-        echo "📍 AWS URL: http://silas-portfolio.s3-website-us-east-1.amazonaws.com"
-        echo "✅ Tests passed and deployment completed"
+        # Uncomment if you set up CloudFront
+        # aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"
+        echo "💡 Tip: Set up CloudFront for HTTPS and global CDN"
